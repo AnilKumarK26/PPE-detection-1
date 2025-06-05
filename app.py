@@ -11,13 +11,18 @@ model = YOLO("best.pt")
 @app.route("/")
 def root():
     try:
-        with open("index.html") as file:
+        with open("index.html", encoding='utf-8') as file:
             return file.read()
     except FileNotFoundError:
         return Response(
             json.dumps({"error": "index.html not found"}), 
             mimetype='application/json'
         ), 404
+    except UnicodeDecodeError:
+        return Response(
+            json.dumps({"error": "Error reading HTML file - encoding issue"}), 
+            mimetype='application/json'
+        ), 500
 
 @app.route("/detect", methods=["POST"])
 def detect():
@@ -77,4 +82,4 @@ def detect_objects_on_image(image):
     return output, safety_status
 
 if __name__ == '__main__':
-    serve(app, host='127.0.0.1', port=5000)  
+    serve(app, host='127.0.0.1', port=5000)
