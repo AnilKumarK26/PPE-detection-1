@@ -5,118 +5,875 @@
     <title>PPE Detection</title>
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAC7CAMAAACjH4DlAAABa1BMVEX////ExMT1kgApKSnx2AGPj4/BwcH1jQDzkwCEd3FwaF5vZ1/zkQCMjIwfHx//5xn84sf6y5XCxcgAAAD62bOysrJxcXE9qKXKysrYsYP5+fnSvADw8PCtra2p1dTr6+vh4eHQ0ND9+uhMr6vS6eiWzcs0paLv9/fX19eIipUUFBR/w8EcHBzi4uLizh/Vwkb//vW53dukkILJ5eT/6S/g7+9dXV30hwADnJr58K1oaGgsKzBmt7VUTEa9uLXKwLiLf3n4uXT979zGhzzWs4/y3T779MdNTU2hoaE3Nzf15Wz37Z726YL365HW6dqxnV7FsBavv8FZd3Y0SUuNnJxJd3Gnx8a0p59bT0lTU1O9zc1xqaSbhnj7t2rQwbGclJH3rFewf0b2pzvNu6HChz/1nyfdq3Lhp1z4w4r60qH3sl363r397NPblizUwpWAlZSQn229mkapupb899Pz4FWfx4+Ou3HQzzKLr601N0l0AAAOu0lEQVR4nO2djV/bxhnHTwYkkRiWQLFcxcg2evMQZhaaEidRoOSFQJKuzbq1zZpQmpSttMnaLt3aP393p7c7nYyVFIwk65fPR7bOktF989w9zz0nnQGoVKlSpUqVKlWqVGjJcnJfTj9wKqQYqkXum6o6dDOeO8A6h4u6OCkKU+RlxfFnrLO9nguW/d441h79AevR2llf0wVKNpkitiRNj2dnfRyzs4/P+qJyIEXKhiHQk9kYx+yT87qoi5NiZO0ykKBtEDhKZx+2p0t65j4UDGZpHLPl8i+WoUIchqFlPP7jJI6Px5xg2zYVzmi2/S7GOFkphoRxSH7/IaPe1IQvaIN3yA2q1oMkjgdj/sJQ16muydY9/bxq87slSZKqWBCHgd2uAizNtYDuwI1im5ZpKzLc6MByNR199pfZJI5xrUViSuzc4nChWUiepUqS4WU6YY3FMSb4sJgShw14ciIN4ZDwRs10QoCDVIliMW1ohGKNOk0712Y3N69F2tycvbZzztc4Qbl6rCzH87fvfPLpNUKffnJnkT/vq5yUHNxMAmVoLZ3bG9tya41QS97euN059wudjEjj0DN0cPsHi6vtfhvIfaw2AP326uLt/TGnqYSkvPajjs0U6WMGL3MHM9eXlmTQXVra3kZvmk+X/nr7s78BRzZdoJmmFm5kDbgucACOuFRkhIblv+TVy75HvoO/PfNlE4Amt9Tc2oJvuktP+b8ffPa5a5uuA/DGcU3b32iabMsaCt2w/zJMFOxldGAXIMXTaftQFGlc+NxYv7MDITSb3X4fG0nziy/XG7JpnppWxNGNIcMIOGt4cwFyFcWhChRFGTvSb9zZ+mIbClUfvX6xdaeBvosNtgiZfk+NOm7j1AOLp/4W1HMca+w8R+/7frl5Wj1lPyttljA5jRBs4Xdy/BYKdqUXdk0XqB2IoCc/u379mdyDb4mYVJlGHsgmWuDp6uo+aMG3lPUrrO9Oy7+WqsXA3kN3/8HxPMLRpz8zXcY3FWmA/z7SvnreBbcajQboPG8mPzSZqrI4nBLhsDTQnPebiLw13005wqObx9BTqQLdU8uBQzY17E278/Mf9WS599F8Kg7YGsj6u4n2A9vTO81j5FQa0APPAXGESsehld3FwP/i2MJTcdABVrl6S1qyAj5/yu+8+ACAwYvd3cOvYxxfH+7uvhgA8MGLJb7ZJs9xU3xuGeTYstPkOO7wxhHcEwThm3lC38ACWHx0Y4nj+C5pIXa5wgss0zJduc0hHQrHsOBlvUbjqNVfwuJjAR/DtciTs0/tFUOwB4BOoM3jmr7CZvCdULvXiGk07tXquwAZzQ4+iKd4AKU0QGQ5+M9t+TSWXgk37gJwItRE0jpEUTgB4G6Ig+OpFmJqpRjCmnIUOcp+NSGOmgD70h8EkTAPaByi8APsSQXhMDguEadqruM4FBJYUCybgRFGfME9PsJRv4rsoFarfRvS+BbuCHdRExJeBTj4TuLbCjVHy0hzNTKHGjQViOO+UP8eeloREqjd83HcQ+9F6Ge/rwuvlri05lKYIZzr2HTwaDsO9I6J/GCPI3Bg14IQ1L5t+C0FvsWOpV6LcXTov8MmR3M5R6snMseyrhtmcjQR9hwIB6w6NIQXsLWIIrIPaBsQh/DCN5kIB8el956mlusuQ2fDRpUZW/V5AodYx90ENg/x0jwyDbEmfAc7lLpYux/h4NvMF0Nb9IaqYeTRLAIl0uhIHoOjG1vHh9CJXEGuBTcR8fJl/IIdC3I3MQ6ux/4xZ4gaoabmdlohm7gYxz9hw4Cu5bWAO9P65UsBjtcAXKVxMDkhYA6DbqoITuWU9AMf4/gXxAED0LU6to4QR62+BsCuUBMIHBzzNVY46+AOc57rcHXJ8OwRFxm6Wd7HUTuCZcckjhr2NkeQ1IdLS1x4NNOXqlEv6rFNNEdyPANNjRlG+mR1MFzhWq3Dw2NY+WPoWo7qpHXUj6BjQR+93HnVCg5PDFygVEtHGExdV/M87rcsQ/Jv/ZFSh58dPugbr/r+RBiEriXEgRzLoO5/eDXoeVnXAp2KAdBtioaRZxyeZkiO5mi6oabGRr0wsApxXEHjE7KxoHHMFSHEER2fkCpJEmxB6AbFvOPwLMtSYfeRhqOZxHGCKk82FgToJMbhWxOTQS0IDls1JNuxHdhm2JgDhH6W70c4UNOgcUTNB+EIGhfjaePGMswzDmgf/m2Dw9QOX47CzAAHznyJdaKxiABnyAIcYRCb/CJND7vSHMelWDqioaa7v1bkKQIcuPZHBA7kWIBYC3GEnoj0tAXL/5iKPioWCB2nHOFAbWNXiHGgwGwgRDhaKZ62IAP8DOqwOHBITuCIw3b0XuZZT1sQHClGnOxNwwFchEOM/GqIA3veWhIHOYgbenQvreRzjjbDAL8ZDclC66jj4TzRd8RDfowj4Ed62oLM0WbAEVcuwvF9EJMHOI5xZjBqLATAoklX6dG27HkGjSMwfQKHiD3tyxgH3q1H1kE0r6KJMdqkVUd+ohfj8BPFQohDwMlkwjq6o8a0JVAQVKEhSNhY8DTC1RgHnmqI444wSmfHtCVQWLd+jCPIBaLk4CVEIMgMRjg68SklU4uL1Aff3RB83YCu5TXauXwJ7cEwJP6IwJGSLi24KByvPwgFAw2AXptNtIU7V6KP7oJ+dEqzbL0HhSOj+uMmW4qrFtcMlB1HhwsDj9LhACurgaDbvHslqV6PKbqLcIQIIxyWZdFBumXlO+cxQqsLgVaI/jLS5cvJEtjLtvgIYfQ1hkMPmF0n21OIedPqwhwWwhHFHaHC9A8h5GhXCISBCjKiHav3wxGfE4jNf7m5nmsZpTPCgaVIaB7OVN9t4ZRc6Sxx6AYCYRt5n5M8RWdqHXi+yTOMCgcSxGEB05BKjiNAItbEU3G4quE/OGrohQ3PsuEQj2tvRPFN7c0b4d+m+dvCjz/OwX9frTiOrJiu7jsWyVAlw/HQtpBOFikTDlH8WfjpzZufxJ9/Fv7jhjjmflxxXeCapuuno1XDUQ3bMxSr3Dj8TmNc3yGrQ0Ua2qqhe8Pi4vhjoN/flSqKrugu3hYyBIN6vBnpZnYcBEJCFpKmo20hh28gXCAMKzOOvT9F2iO/S4NyTLzN9c2lp+hmjGMvK47H8TnU4nvGEEqz0LaofcdeXLW3WXFQCAOxnYWZRwtJzpWaKj2Z+pZcCitrYyERBjKYv5zLAb6uJNYgMU1qUnKNxiHStRcpHCISxPE2BYfETI7nE8eYOVoax40anfqC1lFPZsOu0ueEX6omnrKWcrkaUjwlGTVlqpkTVRuAwcmHtO7v79+nCk5OTgapOBjl/HkwxUuNjQYkDrTqEa0mR+8nzyno0nuarlpW2kI1g82wZngJziZHqZvY91PFCYTFk2VbEEdq3/YgrNkvaC+Jo3s6jnGrmOZUEIeXCUei9r1eGo74nKLicFRJVfW0yOiXsGqP0F6i9p0On4bjl8LjwIt5Sb59mGgtK7RB7x7NBr3HJuoHErVv9xMFvrt4RFlU8YRxSEaw9J0NdLQyheLIluz8d/Z/v/76K6obGn8kcbRTcTygLKp4svz1ANNGEUTEPYjuEwtr32ql4YiHcDcnXI8zkqOghRFTczJExP0kiYOTGT6A8rN7ad9YAFlKuCh4UuSyxmsMjmTrQTiIFMnbtG8sgBCOET8qQOJItA2O7UxofsWMwtDwcmgM05cuIv+vEziajOdN4JhwLX6/wmfAXU3TgsZCr/5PJHPihwQDdcknjkMcROdbvLAjw03YUVA1SOBAdwbSYal/62SEo3i/y6EribuONZd5Bv9J6FgAHXWhO297TEncWopnHMD2mHvSLcbDDPagkJegY3JkCyygyJweFbUjzawEjnayNwlurN27CVXQVMe7KIGjBRK+poT3GZ+mRE8hg2ScOmU4aD8CyIVfsNIXYyyrunTlUVGzwhEIP9zVZIumRjSOLls0XTgoU/DdSK/CEeDooCLa904zDjxA6U8xDqph+A+VJwa5+Z5qPGPR1oEfhGxVOEgccoUjwOGvGs9NL44uW3Uax3R1pSk4QIWjwuGrl1L1acbBs1WnutfpGtFWOCh1UnB0Kxxk1an+ZLqSg+R4LUwT91LKpkTtlKp3Khy46h2/rJ9SNiUih6/hUjYVDgpHO6VsSkThCJYUbKeUTYnklKqnIZoSUTiCVcFaKWXTopSqpyGaFpFVDxJf04yDY3GkIZoWEcPXaJmjNETTIXklEN9skjiaTb94tTNVgUdvedHXzMO5aN3vJscvHMwEHyxf5OVNWp3lmVDrD8OG0V092IiKFy/0+iasdoxjZuNZUMjPkLrQ65uwZALHzPqcX3h9kSg8uNgLnLBIHDMbuLn0qLKHF32FZyVb16lHFty0n0JYJ6u+jLOl+2TZ4jPmlILKU2wah62ozEFku5hZx6uVNMiyxesTutpzF/tzcCa7buLMOBy3JnClExG7lpfMPlh7QOFYRUW3KByNCVzp5GQqgUas+/ZwDI6NhUle7blLG6JHJqVRTz6BZ2Td/cZSZhyuYZlQ+qg1I6+zOBolxmEaKtZwxOe3xuGYm+DFTkCSi6zDZZfq8UXVfX0bFS1skEX7E7zWCUhSdSh1JA6q7niMv19mHI6jW5au+Q9cm45pAUUBnuvoQHdMD/xGeRY2KvWdTXlk+T+JlrbQCxLVMpbxjOwKhYMfcWIxhVdqgBrlaOcoHDj1xVM4ynU3lDIMfjBvxBqJVMtYxnnzJlVUril8N4xKR6yAR3cUuKhD5UDKhUOT/LhDGtFYKDfip3paFI7S3A3l20M4l0QUkWqwmS86Q1YaR/vuA3w/L0rmT0s0wGd/e9Vl0j88lQhMaSwzy2WZw/cSq904ksTgoMb3oSVQGbKSJTxO1QKVKg0jUCpwL11cOlpzFI2ZmWC6nk6lB+Pc0qt9i6axvB1+spDgsVD+ievW3PIiTYNwqQ2ax8b6asmBtNbDyWqsjeUD6peqVzeWN6iPH5acx36D1BwzUuMXqAPKNbCtVKlSpUqVKlWqNEL/B63u/cDjdLXjAAAAAElFTkSuQmCC" type="image/png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://thumbs.dreamstime.com/b/work-safety-items-construction-industry-gray-background-copy-space-150312825.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #f9f9f9;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 40%, #f093fb 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 8s;
+        }
+
+        .shape:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+            animation-duration: 10s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+            animation-duration: 12s;
+        }
+
+        .shape:nth-child(4) {
+            bottom: 10%;
+            right: 20%;
+            animation-delay: 1s;
+            animation-duration: 9s;
+        }
+
+        .shape:nth-child(5) {
+            top: 50%;
+            left: 50%;
+            animation-delay: 3s;
+            animation-duration: 11s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-20px) rotate(90deg) scale(1.1); }
+            50% { transform: translateY(-40px) rotate(180deg) scale(0.9); }
+            75% { transform: translateY(-20px) rotate(270deg) scale(1.05); }
+        }
+
+        .gradient-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            filter: blur(1px);
+            animation: drift 15s ease-in-out infinite;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            width: 200px;
+            height: 200px;
+            top: 20%;
+            right: -100px;
+            animation-delay: 5s;
+        }
+
+        .orb3 {
+            width: 250px;
+            height: 250px;
+            bottom: -125px;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -30px) scale(1.1); }
+            50% { transform: translate(-30px, 50px) scale(0.9); }
+            75% { transform: translate(-20px, -40px) scale(1.05); }
+        }
+
+        .wave-background {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.1));
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C300,120 600,0 900,60 C1050,90 1350,30 1200,60 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E") repeat-x;
+            animation: wave 10s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            bottom: 10px;
+            animation: wave 15s linear infinite reverse;
+            opacity: 0.5;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Enhanced Grid Pattern */
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            animation: slideInDown 1s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ffffff, #e0e7ff, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); }
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .upload-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: #333;
+            gap: 20px;
+            margin-bottom: 40px;
+            animation: slideInUp 1s ease-out 0.3s both;
         }
 
-        h1 {
-            color: #fff;
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .upload-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: transform 0.6s;
+            opacity: 0;
+        }
+
+        .upload-container:hover::before {
+            animation: shimmer 1.5s ease-in-out;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+
+        .upload-container:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .upload-container.dragover {
+            border-color: #4ade80;
+            background: rgba(74, 222, 128, 0.2);
+            transform: scale(1.05);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
             margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .upload-text {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .upload-subtext {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #3b82f6, #1d4ed8, #1e40af);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #10b981, #059669, #047857);
+            color: white;
+        }
+
+        .btn-capture {
+            background: linear-gradient(45deg, #f59e0b, #d97706, #b45309);
+            color: white;
+        }
+
+        .webcam-container {
+            display: none;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        #webcam {
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .results-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .results-section {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .canvas-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .canvas-container:hover {
+            transform: translateY(-5px);
         }
 
         canvas {
-            display: block;
-            border: 2px solid #ddd;
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        input[type="file"], button {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            cursor: pointer;
-            color: #fff;
+        .status-card, .detection-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
         }
 
-        input[type="file"] {
-            background-color: #007bff; /* Blue */
+        .status-card:hover, .detection-card:hover {
+            transform: translateY(-5px);
         }
 
-        button {
-            background-color: #28a745; /* Green */
-        }
-
-        #captureButton {
-            background-color: #ffc107; /* Yellow */
-            color: #333;
-        }
-
-        #safety-status, #detected-classes {
-            margin-top: 20px;
-            width: 100%;
-            max-width: 800px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #safety-status h2, #detected-classes h2 {
-            font-size: 18px;
-            margin: 0;
-            padding: 10px;
-            border-radius: 4px;
-            background-color: #f2f2f2;
-            color: #333;
+        .status-header {
             text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
         }
 
-        table {
-            border-collapse: collapse;
+        .status-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: statusGlow 3s linear infinite;
+        }
+
+        @keyframes statusGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .status-safe {
+            background: linear-gradient(45deg, #10b981, #34d399, #6ee7b7);
+            color: white;
+        }
+
+        .status-unsafe {
+            background: linear-gradient(45deg, #ef4444, #f87171, #fca5a5);
+            color: white;
+        }
+
+        .detection-table {
             width: 100%;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+            margin-top: 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+        .detection-table th {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed, #a855f7);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
             text-align: left;
-            font-size: 14px;
+            position: relative;
         }
 
-        th {
-            background-color: #f2f2f2;
+        .detection-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+            background: white;
+            transition: background-color 0.3s ease;
         }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+        .detection-table tr:hover td {
+            background: linear-gradient(45deg, #f8fafc, #f1f5f9);
         }
 
-        tr:hover {
-            background-color: #f1f1f1;
+        .probability-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .probability-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #10b981, #34d399, #6ee7b7);
+            border-radius: 4px;
+            transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .probability-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: progressShine 2s ease-in-out infinite;
+        }
+
+        @keyframes progressShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+            position: relative;
+        }
+
+        .spinner::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border: 2px solid transparent;
+            border-top: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: spin 0.5s linear infinite reverse;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0, #cbd5e1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #4f46e5;
+            margin-bottom: 5px;
+            animation: countUp 1s ease-out;
+        }
+
+        @keyframes countUp {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        #uploadInput {
+            display: none;
+        }
+
+        .error-message {
+            background: linear-gradient(45deg, #ef4444, #f87171, #fca5a5);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Particle effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 15s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Personal Protective Equipment Detection</h1>
-    <input id="uploadInput" type="file" accept="image/*"/>
-    <button id="webcamButton">Use Webcam</button>
-    <video id="webcam" autoplay playsinline style="display:none;"></video>
-    <button id="captureButton" style="display:none;">Capture Image</button>
-    <div id="safety-status"></div>
-    <canvas></canvas>
-    <div id="detected-classes"></div>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <!-- Floating Shapes -->
+        <div class="floating-shapes">
+            <svg class="shape" width="60" height="60" viewBox="0 0 60 60">
+                <polygon points="30,5 55,50 5,50" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            </svg>
+            <svg class="shape" width="80" height="80" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="35" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                <circle cx="40" cy="40" r="20" fill="rgba(255,255,255,0.1)"/>
+            </svg>
+            <svg class="shape" width="70" height="70" viewBox="0 0 70 70">
+                <rect x="10" y="10" width="50" height="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" rx="5"/>
+                <rect x="20" y="20" width="30" height="30" fill="rgba(255,255,255,0.08)" rx="3"/>
+            </svg>
+            <svg class="shape" width="90" height="90" viewBox="0 0 90 90">
+                <path d="M45,10 L70,35 L45,80 L20,35 Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            </svg>
+            <svg class="shape" width="65" height="65" viewBox="0 0 65 65">
+                <polygon points="32.5,5 60,50 5,50" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+                <circle cx="32.5" cy="35" r="8" fill="rgba(255,255,255,0.1)"/>
+            </svg>
+        </div>
+
+        <!-- Gradient Orbs -->
+        <div class="gradient-orbs">
+            <div class="orb orb1"></div>
+            <div class="orb orb2"></div>
+            <div class="orb orb3"></div>
+        </div>
+
+        <!-- Grid Pattern -->
+        <div class="grid-pattern"></div>
+
+        <!-- Wave Background -->
+        <div class="wave-background">
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+
+        <!-- Particles -->
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>🛡️ Advanced PPE Detection</h1>
+            <p>AI-Powered Personal Protective Equipment Safety Monitor</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-container" onclick="document.getElementById('uploadInput').click()">
+                <div class="upload-icon">📷</div>
+                <div class="upload-text">Click to upload image or drag & drop</div>
+                <div class="upload-subtext">Supports JPG, PNG, WEBP formats</div>
+                <input id="uploadInput" type="file" accept="image/*">
+            </div>
+
+            <div class="button-group">
+                <button id="webcamButton" class="btn btn-secondary">
+                    🎥 Use Webcam
+                </button>
+            </div>
+
+            <div class="webcam-container" id="webcamContainer">
+                <video id="webcam" autoplay playsinline></video>
+                <br>
+                <button id="captureButton" class="btn btn-capture">
+                    📸 Capture Photo
+                </button>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Processing image with AI...
+            </div>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="canvas-container">
+                <h3 style="margin-bottom: 15px; color: #374151;">Detection Results</h3>
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div>
+                <div class="status-card" id="safetyStatus">
+                    <div class="status-header" id="statusHeader">
+                        Analyzing...
+                    </div>
+                    <div class="stats-grid" id="statsGrid">
+                        <!-- Stats will be populated here -->
+                    </div>
+                </div>
+
+                <div class="detection-card" id="detectedClasses" style="margin-top: 20px;">
+                    <h3 style="margin-bottom: 15px; color: #374151;">Detected Equipment</h3>
+                    <table class="detection-table" id="detectionTable">
+                        <thead>
+                            <tr>
+                                <th>Equipment Type</th>
+                                <th>Confidence</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detectionTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden">
+            Something went wrong. Please try again.
+        </div>
+    </div>
+
     <script>
         const uploadInput = document.getElementById("uploadInput");
         const webcamButton = document.getElementById("webcamButton");
         const webcam = document.getElementById("webcam");
         const captureButton = document.getElementById("captureButton");
+        const webcamContainer = document.getElementById("webcamContainer");
+        const uploadContainer = document.querySelector(".upload-container");
+        const loading = document.getElementById("loading");
+        const resultsSection = document.getElementById("resultsSection");
+        const errorMessage = document.getElementById("errorMessage");
+
+        let webcamStream = null;
+
+        // Drag and drop functionality
+        uploadContainer.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadContainer.classList.add('dragover');
+        });
+
+        uploadContainer.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            uploadContainer.classList.remove('dragover');
+        });
+
+        uploadContainer.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadContainer.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                processImage(files[0]);
+            }
+        });
 
         uploadInput.addEventListener("change", async (event) => {
             const file = event.target.files[0];
@@ -125,29 +882,65 @@
         });
 
         webcamButton.addEventListener("click", async () => {
+            if (webcamStream) {
+                // Stop webcam
+                webcamStream.getTracks().forEach(track => track.stop());
+                webcamStream = null;
+                webcamContainer.style.display = "none";
+                webcamButton.innerHTML = "🎥 Use Webcam";
+                return;
+            }
+
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-                    webcam.srcObject = stream;
-                    webcam.style.display = "block";
-                    captureButton.style.display = "block";
-                }).catch(err => {
+                try {
+                    webcamStream = await navigator.mediaDevices.getUserMedia({ 
+                        video: { width: 640, height: 480 } 
+                    });
+                    webcam.srcObject = webcamStream;
+                    webcamContainer.style.display = "block";
+                    webcamButton.innerHTML = "❌ Stop Webcam";
+                } catch (err) {
                     console.error("Error accessing webcam: ", err);
-                });
+                    showError("Could not access webcam. Please check permissions.");
+                }
+            } else {
+                showError("Webcam not supported by this browser.");
             }
         });
 
         captureButton.addEventListener("click", () => {
-            const canvas = document.querySelector("canvas");
+            const canvas = document.createElement('canvas');
             canvas.width = webcam.videoWidth;
             canvas.height = webcam.videoHeight;
             const ctx = canvas.getContext("2d");
             ctx.drawImage(webcam, 0, 0, canvas.width, canvas.height);
+            
             canvas.toBlob(blob => {
                 processImage(blob);
-            }, "image/jpeg");
+            }, "image/jpeg", 0.8);
         });
 
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+            setTimeout(() => {
+                errorMessage.classList.add('hidden');
+            }, 5000);
+        }
+
+        function showLoading() {
+            loading.style.display = 'block';
+            resultsSection.style.display = 'none';
+            errorMessage.classList.add('hidden');
+        }
+
+        function hideLoading() {
+            loading.style.display = 'none';
+        }
+
         async function processImage(file) {
+            showLoading();
+            
             const data = new FormData();
             data.append("image_file", file);
 
@@ -158,81 +951,121 @@
                 });
                 const result = await response.json();
 
+                hideLoading();
                 if (response.ok) {
-                    draw_image_and_boxes(file, result.boxes);
-                    display_detected_classes(result.boxes);
-                    display_safety_status(result.safety_status);
+                    drawImageAndBoxes(file, result.boxes);
+                    displayDetectedClasses(result.boxes);
+                    displaySafetyStatus(result.safety_status, result.boxes);
+                    resultsSection.style.display = 'grid';
+                    resultsSection.classList.add('fade-in');
                 } else {
-                    alert(result.error);
+                    showError(result.error || "An error occurred while processing the image.");
                 }
             } catch (error) {
+                hideLoading();
                 console.error("Error:", error);
-                alert("An error occurred while processing the image.");
+                showError("Network error. Please check your connection and try again.");
             }
         }
 
-        function draw_image_and_boxes(file, boxes) {
+        function drawImageAndBoxes(file, boxes) {
             const img = new Image();
             img.src = URL.createObjectURL(file);
             img.onload = () => {
-                const canvas = document.querySelector("canvas");
+                const canvas = document.getElementById("canvas");
                 canvas.width = img.width;
                 canvas.height = img.height;
                 const ctx = canvas.getContext("2d");
+                
+                // Draw image
                 ctx.drawImage(img, 0, 0);
-                ctx.strokeStyle = "#00FF00";
+                
+                // Draw boxes
+                ctx.strokeStyle = "#10b981";
                 ctx.lineWidth = 3;
-                ctx.font = "18px serif";
+                ctx.font = "16px Inter, sans-serif";
+                ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
+                ctx.shadowBlur = 4;
 
                 boxes.forEach(([x1, y1, x2, y2, label, prob]) => {
+                    // Draw bounding box
                     ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
-                    ctx.fillStyle = "#00ff00";
+                    
+                    // Draw label background
                     const text = `${label} (${prob})`;
-                    const textWidth = ctx.measureText(text).width;
-                    ctx.fillRect(x1, y1 - 22, textWidth + 10, 22);
-                    ctx.fillStyle = "#000000";
-                    ctx.fillText(text, x1, y1 - 5);
+                    const textMetrics = ctx.measureText(text);
+                    const textWidth = textMetrics.width + 16;
+                    const textHeight = 24;
+                    
+                    ctx.fillStyle = "#10b981";
+                    ctx.fillRect(x1, y1 - textHeight, textWidth, textHeight);
+                    
+                    // Draw label text
+                    ctx.fillStyle = "white";
+                    ctx.fillText(text, x1 + 8, y1 - 6);
                 });
+                
+                ctx.shadowBlur = 0;
             };
         }
 
-        function display_detected_classes(boxes) {
-            const detectedClassesDiv = document.getElementById("detected-classes");
-            detectedClassesDiv.innerHTML = "<h2>Detected Classes:</h2>";
-
-            const table = document.createElement("table");
-            const thead = document.createElement("thead");
-            const tbody = document.createElement("tbody");
-
-            const headerRow = document.createElement("tr");
-            const headers = ["Class", "Probability"];
-            headers.forEach(headerText => {
-                const th = document.createElement("th");
-                th.textContent = headerText;
-                headerRow.appendChild(th);
-            });
-            thead.appendChild(headerRow);
+        function displayDetectedClasses(boxes) {
+            const tbody = document.getElementById("detectionTableBody");
+            tbody.innerHTML = "";
 
             boxes.forEach(([x1, y1, x2, y2, label, prob]) => {
                 const row = document.createElement("tr");
+                
                 const classCell = document.createElement("td");
-                classCell.textContent = label;
+                classCell.innerHTML = `<strong>${label}</strong>`;
+                
                 const probCell = document.createElement("td");
-                probCell.textContent = prob;
+                const percentage = Math.round(prob * 100);
+                probCell.innerHTML = `
+                    <div>${percentage}%</div>
+                    <div class="probability-bar">
+                        <div class="probability-fill" style="width: ${percentage}%"></div>
+                    </div>
+                `;
 
                 row.appendChild(classCell);
                 row.appendChild(probCell);
                 tbody.appendChild(row);
             });
-
-            table.appendChild(thead);
-            table.appendChild(tbody);
-            detectedClassesDiv.appendChild(table);
         }
 
-        function display_safety_status(safety_status) {
-            const safetyStatusDiv = document.getElementById("safety-status");
-            safetyStatusDiv.innerHTML = `<h2>Safety Status: <span style="color: ${safety_status === "safe" ? "green" : "red"};">${safety_status.toUpperCase()}</span></h2>`;
+        function displaySafetyStatus(safetyStatus, boxes) {
+            const statusHeader = document.getElementById("statusHeader");
+            const statsGrid = document.getElementById("statsGrid");
+            
+            statusHeader.className = `status-header ${safetyStatus === "safe" ? "status-safe" : "status-unsafe"}`;
+            statusHeader.innerHTML = `
+                ${safetyStatus === "safe" ? "✅" : "⚠️"} 
+                Safety Status: ${safetyStatus.toUpperCase()}
+            `;
+
+            // Calculate statistics
+            const totalDetections = boxes.length;
+            const avgConfidence = boxes.reduce((sum, box) => {
+                return sum + (box[5] * 100);
+            }, 0) / totalDetections;
+
+            const uniqueEquipment = [...new Set(boxes.map(box => box[4]))].length;
+
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${totalDetections}</div>
+                    <div class="stat-label">Items Detected</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${uniqueEquipment}</div>
+                    <div class="stat-label">Equipment Types</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${avgConfidence.toFixed(0)}%</div>
+                    <div class="stat-label">Avg Confidence</div>
+                </div>
+            `;
         }
     </script>
 </body>
